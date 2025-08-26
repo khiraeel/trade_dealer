@@ -1,0 +1,15 @@
+# app
+/app/vendor
+/app/.env
+/app/*.lst
+/app/var/
+/app/bin/*
+!/app/bin/console
+
+docker/.env
+
+# ide
+.idea
+.vscode
+
+app/.deptrac.cache
