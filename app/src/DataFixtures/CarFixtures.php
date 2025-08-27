@@ -6,10 +6,16 @@ use App\Entity\Car;
 use App\Entity\CarBrand;
 use App\Entity\CarModel;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Bundle\FixturesBundle\FixtureGroupInterface;
 use Doctrine\Persistence\ObjectManager;
 
-class CarFixtures extends Fixture
+class CarFixtures extends Fixture implements FixtureGroupInterface
 {
+    public static function getGroups(): array
+    {
+        return ['cars'];
+    }
+
     public function load(ObjectManager $manager): void
     {
         $brands = [];

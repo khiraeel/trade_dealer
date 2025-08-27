@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\CreditProgramRepository")
  * @ORM\Table(name="credit_programs")
  */
 class CreditProgram
@@ -27,18 +27,32 @@ class CreditProgram
     private string $title;
 
     /**
-     * @ORM\Column(type="float", precision=10, scale=2)
+     * @ORM\Column(type="float")
      */
-    private InterestRate $interestRate;
+    private float $interestRate;
 
 
     public function __construct(
-        int $id,
         string $title,
-        InterestRate $interestRate
+        float $interestRate
     )
     {
         $this->title = $title;
-        $this->interestRate = $interestRate;
+        $this->interestRate = (new InterestRate($interestRate))->getValue();
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function getInterestRate(): InterestRate
+    {
+        return new InterestRate($this->interestRate);
     }
 }
