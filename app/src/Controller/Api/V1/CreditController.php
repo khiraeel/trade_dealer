@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace App\Controller\Api\V1;
 
-use App\Exception\NoCreditProgramsFoundException;
+use App\Exception\CreditProgramNotFoundException;
 use App\Service\CreditService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -49,7 +49,7 @@ final class CreditController extends BaseController
             $result = $this->creditService->calculate($dto);
 
             return $this->createResponseSuccess($result);
-        } catch (NoCreditProgramsFoundException $e) {
+        } catch (CreditProgramNotFoundException $e) {
             return $this->createResponseBadRequest([
                 'error' => $e->getMessage()
             ]);

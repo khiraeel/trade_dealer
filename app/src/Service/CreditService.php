@@ -3,14 +3,14 @@
 namespace App\Service;
 
 use App\Dto\CreditCalculationDto;
-use App\Exception\NoCreditProgramsFoundException;
+use App\Exception\CreditProgramNotFoundException;
 use App\Repository\CreditProgramRepository;
 use Doctrine\ORM\EntityManagerInterface;
 
 class CreditService
 {
-    private $creditProgramRepository;
-    private $entityManager;
+    private CreditProgramRepository $creditProgramRepository;
+    private EntityManagerInterface $entityManager;
 
     public function __construct(
         CreditProgramRepository $creditProgramRepository,
@@ -28,7 +28,7 @@ class CreditService
     {
         $programs = $this->creditProgramRepository->findAll();
         if (empty($programs)) {
-            throw new NoCreditProgramsFoundException("No credit programs available");
+            throw new CreditProgramNotFoundException("No credit programs available");
         }
 
         $initialPayment = $dto->initialPayment;

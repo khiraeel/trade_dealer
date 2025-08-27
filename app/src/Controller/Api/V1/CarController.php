@@ -5,6 +5,7 @@ declare(strict_types = 1);
 namespace App\Controller\Api\V1;
 
 use App\Exception\CarNotFoundException;
+use App\Exception\CreditProgramNotFoundException;
 use App\Service\CarService;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -47,7 +48,7 @@ final class CarController extends BaseController
             $carData = $carView->getDetailData();
 
             return $this->createResponseSuccess($carData);
-        }catch (CarNotFoundException $ex){
+        }catch (CarNotFoundException|CreditProgramNotFoundException $ex){
             return $this->createResponseNotFound([
                 'message' => $ex->getMessage(),
             ]);
