@@ -20,22 +20,4 @@ class LoanApplicationRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, LoanApplication::class);
     }
-
-    public function add(LoanApplication $entity, bool $flush = false): void
-    {
-        $this->getEntityManager()->persist($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
-    }
-
-    public function remove(LoanApplication $entity, bool $flush = false): void
-    {
-        $this->getEntityManager()->remove($entity);
-
-        if ($flush) {
-            $this->getEntityManager()->flush();
-        }
-    }
 }

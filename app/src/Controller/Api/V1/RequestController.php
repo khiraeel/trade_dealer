@@ -9,7 +9,6 @@ use App\Exception\CarNotFoundException;
 use App\Exception\CreditProgramNotFoundException;
 use App\Exception\InvalidArgumentException;
 use App\Service\LoanService;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

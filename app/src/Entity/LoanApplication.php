@@ -51,19 +51,4 @@ class LoanApplication
     {
         return $this->id;
     }
-
-    public function getCar(): Car
-    {
-        return $this->car;
-    }
-
-    public function getCreditProgram(): CreditProgram
-    {
-        return $this->creditProgram;
-    }
-
-    public function getLoanTerm(): int
-    {
-        return $this->loanTerm;
-    }
 }

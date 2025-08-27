@@ -55,9 +55,4 @@ class CreditProgram
     {
         return new InterestRate($this->interestRate);
     }
-
-    public function setInterestRate(InterestRate $rate): void
-    {
-        $this->interestRate = $rate->getValue();
-    }
 }

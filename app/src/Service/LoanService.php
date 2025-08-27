@@ -12,12 +12,10 @@ use App\Exception\CreditProgramNotFoundException;
 use App\Exception\InvalidArgumentException;
 use App\Repository\CarRepository;
 use App\Repository\CreditProgramRepository;
-use App\Repository\LoanApplicationRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Service\CreditService as CreditCalculator;
 class LoanService
 {
-    private LoanApplicationRepository $loanApplicationRepository;
     private EntityManagerInterface $entityManager;
     private CarRepository  $carRepository;
     private CreditProgramRepository  $creditProgramRepository;

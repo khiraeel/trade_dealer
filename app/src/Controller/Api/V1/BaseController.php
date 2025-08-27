@@ -27,24 +27,8 @@ abstract class BaseController extends AbstractController
     /**
      * @param array|object $data
      */
-    public function createResponseInternalServerError($data): JsonResponse
-    {
-        return $this->json($data, Response::HTTP_INTERNAL_SERVER_ERROR);
-    }
-
-    /**
-     * @param array|object $data
-     */
     public function createResponseBadRequest($data): JsonResponse
     {
         return $this->json($data, Response::HTTP_BAD_REQUEST);
-    }
-
-    /**
-     * @param array|object $data
-     */
-    public function createResponseHttpConflict($data): JsonResponse
-    {
-        return $this->json($data, Response::HTTP_CONFLICT);
     }
 }
