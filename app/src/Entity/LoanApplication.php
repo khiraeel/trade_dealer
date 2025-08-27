@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\LoanApplicationRepository")
  * @ORM\Table(name="loan_applications")
  */
 class LoanApplication
@@ -45,5 +45,25 @@ class LoanApplication
         $this->car = $car;
         $this->creditProgram = $creditProgram;
         $this->loanTerm = $loanTerm;
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getCar(): Car
+    {
+        return $this->car;
+    }
+
+    public function getCreditProgram(): CreditProgram
+    {
+        return $this->creditProgram;
+    }
+
+    public function getLoanTerm(): int
+    {
+        return $this->loanTerm;
     }
 }

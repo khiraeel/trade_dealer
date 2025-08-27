@@ -8,27 +8,42 @@ use Symfony\Component\HttpFoundation\Response;
 
 abstract class BaseController extends AbstractController
 {
-    public function createResponseSuccess(array $data): JsonResponse
+    /**
+     * @param array|object $data
+     */
+    public function createResponseSuccess($data): JsonResponse
     {
         return $this->json($data);
     }
 
-    public function createResponseNotFound(array $data): JsonResponse
+    /**
+     * @param array|object $data
+     */
+    public function createResponseNotFound($data): JsonResponse
     {
         return $this->json($data, Response::HTTP_NOT_FOUND);
     }
 
-    public function createResponseInternalServerError(mixed $data): JsonResponse
+    /**
+     * @param array|object $data
+     */
+    public function createResponseInternalServerError($data): JsonResponse
     {
         return $this->json($data, Response::HTTP_INTERNAL_SERVER_ERROR);
     }
 
-    public function createResponseBadRequest(mixed $data): JsonResponse
+    /**
+     * @param array|object $data
+     */
+    public function createResponseBadRequest($data): JsonResponse
     {
         return $this->json($data, Response::HTTP_BAD_REQUEST);
     }
 
-    public function createResponseHttpConflict(mixed $data): JsonResponse
+    /**
+     * @param array|object $data
+     */
+    public function createResponseHttpConflict($data): JsonResponse
     {
         return $this->json($data, Response::HTTP_CONFLICT);
     }

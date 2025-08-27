@@ -11,27 +11,33 @@ use Symfony\Component\Validator\Constraints as Assert;
 class CreditCalculationDto
 {
     /**
+     * @Assert\NotBlank
+     * @Assert\Type("integer")
      * @Assert\Positive
      */
-    public int $price;
+    public $price;
 
     /**
+     * @Assert\NotBlank
+     * @Assert\Type("numeric")
      * @Assert\PositiveOrZero
      */
-    public float $initialPayment;
+    public $initialPayment;
 
     /**
+     * @Assert\NotBlank
+     * @Assert\Type("integer")
      * @Assert\Positive
      */
-    public int $loanTerm;
+    public $loanTerm;
 
     public function __construct(
-        int $price,
-        float $initialPayment,
-        int $loanTerm
+        $price,
+        $initialPayment,
+        $loanTerm
     ) {
-        $this->price = $price;
-        $this->initialPayment = $initialPayment;
-        $this->loanTerm = $loanTerm;
+        $this->price = (int) $price;
+        $this->initialPayment = (float) $initialPayment;
+        $this->loanTerm = (int) $loanTerm;
     }
 }
